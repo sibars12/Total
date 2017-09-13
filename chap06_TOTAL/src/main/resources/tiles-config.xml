@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- tile register -->
+	<definition name="t_base" template="/WEB-INF/views/template.jsp">
+		<put-attribute name="title" value="HUB" />
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/nav.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	<definition name="t_login" extends="t_base">
+		<put-attribute name="title" value="로그인 - HUB" />
+		<put-attribute name="section" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	
+	<definition name="t_join" extends="t_base">
+		<put-attribute name="title" value="회원가입 - HUB" />
+		<put-attribute name="section" value="/WEB-INF/views/join.jsp" />
+	</definition>
+	
+
+
+</tiles-definitions>
