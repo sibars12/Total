@@ -17,6 +17,11 @@
 		<put-attribute name="title" value="회원가입 - HUB" />
 		<put-attribute name="section" value="/WEB-INF/views/join.jsp" />
 	</definition>
+	<definition name="t_expr" extends="t_base">
+		<put-attribute name="title" value="나의정보"/>
+		<put-attribute name="section" value="/WEB-INF/views/info.jsp"/>
+		
+	 </definition>
 	
 
 

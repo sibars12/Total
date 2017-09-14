@@ -52,7 +52,7 @@
 	</bean>
 	<!-- converter -->
 	<bean class="com.fasterxml.jackson.databind.ObjectMapper" />
-	
+	 
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
 		<property name="order" value="1"/>
 	</bean>
@@ -60,7 +60,7 @@
 	<property name="definitions">
 		<list>
 			<value>classpath:/tiles-config.xml</value>
-		</list>
+		</list> 
 	</property>
 		</bean>
 
