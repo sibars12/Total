@@ -1,8 +1,11 @@
 package org.kg.gv.controllr;
 
+import java.awt.Window;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import org.kg.gv.DAO.member;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +25,35 @@ public class JoinController {
 	}
 	@PostMapping("/join")
 	public String joinPostHandle(@RequestParam Map map, HttpSession session, Model model) {
-		try {
-			boolean b = mem.addOne(map);
-			session.setAttribute("auth", "on");
+		boolean b = mem.addOne(map);
+		if(b) {
 			return "game";
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("temp", map);
+			
+		}else {
 			return "join";
 		}
 	}
+	@GetMapping("/login")
+	public String logingetHandle() {
+		return "t_login";
+	}
+	@PostMapping("/login")
+	public String loginHandle(@RequestParam Map map,HttpSession session ,Model model) {
+		try {
+			int log=mem.existOne(map);
+			if(log==1) {
+			session.setAttribute("auth", "on");
+			return "game";
+			}else {
+				
+				return "join";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("temp", map);
+			
+			return "join";
+		}
+	}
+	
 }

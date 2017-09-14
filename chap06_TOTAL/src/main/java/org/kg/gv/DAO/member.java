@@ -19,4 +19,7 @@ public class member {
 		
 		return (a+b)==2;
 	}
+	public int existOne(Map map) {
+		return template.selectOne("member.checkByIdmailAndPass", map);
+	}
 }
