@@ -17,10 +17,18 @@
 		<put-attribute name="title" value="회원가입 - HUB" />
 		<put-attribute name="section" value="/WEB-INF/views/join.jsp" />
 	</definition>
-	<definition name="t_expr" extends="t_base">
+	<definition name="t_info" extends="t_base">
 		<put-attribute name="title" value="나의정보"/>
 		<put-attribute name="section" value="/WEB-INF/views/info.jsp"/>
 		
+	 </definition>
+	 <definition name="t_profile" extends="t_base">
+	 	<put-attribute name="title" value="나의 프로필"/>
+	 	<put-attribute name="section" value="/WEB-INF/views/profile.jsp"></put-attribute>
+	 </definition>
+	  <definition name="t_allpro" extends="t_base">
+	 	<put-attribute name="title" value="모두의 프로필"/>
+	 	<put-attribute name="section" value="/WEB-INF/views/allpro.jsp"></put-attribute>
 	 </definition>
 	
 

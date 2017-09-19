@@ -8,12 +8,37 @@
 	<insert id="addDetail">
 		insert into detail(id) values (#{id})		
 	</insert>
-	<select id="checkByIdmailAndPass" resultType="java.lang.Integer">
-		select count(*) from member where (id=#{idmail} or email=#{idmail})
+	<select id="checkByIdmailAndPass" resultType="java.util.HashMap">
+		select * from member where (id=#{idmail} or email=#{idmail})
 			 and pass=#{pass, jdbcType=VARCHAR }
 	</select>
 	<select id="readOne" resultType="java.util.HashMap">
 		select * from member where (id=#{idmail} or email=#{idmail})
 			 and pass=#{pass, jdbcType=VARCHAR }
 	</select>
+	<select id="proall" resultType="java.util.HashMap">
+		select * from profile where id=#{id} order by regdate desc
+	</select>
+	<select id="proone" resultType="java.util.HashMap">
+		select * from (select * from profile where id=#{id} order by regdate desc) where rownum=1
+	</select>
+	<insert id="addpro">
+		insert into profile(num,id,regdate, url) values (profile_seq.nextval ,#{id}, sysdate, #{path})		
+	</insert>
+	<select id="getid" resultType="java.util.HashMap">
+		SELECT * from member where(id=#{id} or email=#{id})
+	</select>
+	<select id="allpro"  resultType="java.util.HashMap">
+		select * from (
+			select rownum as r, t.* from (
+				select m.*, p.URL from member m left join
+   					(select id, max(URL) as URL from profile group by id) p on m.id = p.id
+					order by m.id asc
+			) t 
+		) where r between #{start} and #{end }
+	</select>
+	<select id="all" resultType="java.lang.Integer">
+		select count(*) FROM member ID
+	</select>
+	
 </mapper>
